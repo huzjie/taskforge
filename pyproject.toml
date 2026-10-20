@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskforge"
+version = "1.0.0"
+description = "Long-horizon agent workflow orchestration engine (zero-dependency reference)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "taskforge contributors" }]
+
+[project.scripts]
+taskforge = "taskforge.serving.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["taskforge*"]

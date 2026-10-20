@@ -1,0 +1,6 @@
+apiVersion: v2
+name: taskforge
+description: Long-horizon agent workflow orchestration engine
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

@@ -1,0 +1,10 @@
+services:
+  taskforge:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8787:8787"
+    environment:
+      - TASKFORGE_BACKEND=mock
+    restart: unless-stopped

@@ -1,0 +1,5 @@
+taskforge deployed.
+
+To check health:
+  kubectl port-forward svc/{{ include "taskforge.name" . }} 8787:8787
+  curl http://127.0.0.1:8787/health

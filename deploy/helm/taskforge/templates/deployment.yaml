@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "taskforge.name" . }}
+  labels:
+    app: {{ include "taskforge.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "taskforge.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "taskforge.name" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8787
+          env:
+            - name: TASKFORGE_BACKEND
+              value: {{ .Values.backend | quote }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

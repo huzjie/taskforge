@@ -1,0 +1,20 @@
+replicaCount: 2
+
+image:
+  repository: taskforge
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8787
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "1"
+
+backend: mock

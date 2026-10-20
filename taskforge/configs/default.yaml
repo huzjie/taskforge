@@ -1,0 +1,47 @@
+# taskforge default configuration
+planner:
+  max_steps: 32
+  react_max_iters: 16
+  decompose_mode: dag
+  thinking_budget: 2048
+
+tools:
+  max_calls: 64
+  retries: 3
+  rollback: true
+  validate_results: true
+
+gui:
+  screen_w: 1280
+  screen_h: 800
+  n_elements: 12
+  action_set: [click, type, scroll, press, drag, hover]
+
+sparse:
+  block_size: 16
+  top_k: 4
+  dim: 32
+  seq_len: 128
+
+memory:
+  capacity: 256
+  stall_threshold: 3
+  recovery_budget: 5
+
+model:
+  backend: mock
+  temperature: 0.0
+  model_id: taskforge-mock
+
+bench:
+  n_tasks: 64
+  n_seen: 32
+  n_unseen: 32
+  episodes: 4
+  horizon: 8
+
+# declared scale (informational)
+total_params_b: 560.0
+active_params_b: 25.0
+context_window: 1000000
+tokens_per_second: 200
